@@ -5,14 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    LeafletModule,
+    HttpClientModule,
   ],
   declarations: [HomePage]
 })

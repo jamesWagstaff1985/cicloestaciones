@@ -1,0 +1,6 @@
+{
+    "/": {
+      "target": "https://www.ecobici.cdmx.gob.mx/availability_map/getJsonObject",
+      "secure": false
+    }
+  }

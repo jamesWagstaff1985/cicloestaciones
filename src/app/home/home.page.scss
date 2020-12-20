@@ -1,27 +1,26 @@
-#container {
-  text-align: center;
+.map {
+  height: 100vh;
+  padding: 0;
+}
 
+#locationButton {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  z-index: 400;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.pull-down {
+  position: absolute;
+  width: 34px;
+  margin-left: 10px;
+  margin-top: 78px;
+  height: 34px;
+  overflow: hidden;
+  padding: 3px 1px 0px 0px;
+  z-index: 9999;
+  border: 2px solid #b8b7b3;
+  border-radius: 4px;
+  background-color: #f4f4f4;
 }

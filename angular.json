@@ -19,8 +19,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
+            "assets": [{
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
@@ -29,26 +28,33 @@
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "leaflet/"
               }
             ],
-            "styles": [
-              {
+            "styles": [{
                 "input": "src/theme/variables.scss"
               },
               {
                 "input": "src/global.scss"
-              }
+              },
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"
             ],
-            "scripts": []
+            "scripts": [ "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js"]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -58,13 +64,11 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "budgets": [{
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }]
             },
             "ci": {
               "progress": false
@@ -74,7 +78,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -100,8 +105,7 @@
             "karmaConfig": "karma.conf.js",
             "styles": [],
             "scripts": [],
-            "assets": [
-              {
+            "assets": [{
                 "glob": "favicon.ico",
                 "input": "src/",
                 "output": "/"
@@ -128,7 +132,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -174,7 +180,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
+    "defaultCollection": "@ionic/angular-toolkit",
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

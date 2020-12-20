@@ -1,5 +1,7 @@
 {
   "name": "cicloestaciones",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
